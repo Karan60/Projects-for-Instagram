@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;}
+  .item {
+    flex: 1 1 100px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s; }
+  .item:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.1); }
+  .cursor-default { cursor: default; }
+  .cursor-pointer { cursor: pointer; }
+  .cursor-crosshair { cursor: crosshair; }
+  .cursor-move { cursor: move; }
+  .cursor-wait { cursor: wait; }
+  .cursor-text { cursor: text; }
+  .cursor-help { cursor: help; }
+  .cursor-not-allowed { cursor: not-allowed; }
+  .cursor-grab { cursor: grab; }
+  .cursor-zoom-in { cursor: zoom-in; }
+  .cursor-love {
+    cursor: url('lovee.png'), auto; }
+  .cursor-smile {
+    cursor: url('smile.png'), auto; }
+
+
+
+
+
+  

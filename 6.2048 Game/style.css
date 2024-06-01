@@ -1,0 +1,132 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #6fd8f8;
+}
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+h1 {
+  color: #353232;
+}
+.container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+h1 {
+  font-size: 4em;
+}
+.score-container {
+  color: #131212;
+  font-size: 1.3rem;
+}
+#score {
+  font-weight: 600;
+}
+.grid {
+  width: 25em;
+  height: 25em;
+  background-color: #8efc7f;
+  border: 5px solid #bbada0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5em;
+  box-shadow: 0 0 15px 5px rgba(242, 242, 243, 0.8);
+}
+.box {
+  width: 97.5px;
+  height: 97.5px;
+  border: 5px solid #a7998d;
+  font-size: 40px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+.cover-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #faf8ef;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#start-button {
+  background-color: #8f7a66;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1em;
+  letter-spacing: 0.2px;
+  color: #ffffff;
+}
+.hide {
+  display: none;
+}
+.box-2 {
+  background-color: #eee4da;
+  color: #727371;
+}
+.box-4 {
+  background-color: #eee1c9;
+  color: #727371;
+}
+
+.box-8 {
+  background-color: #f3b27a;
+  color: white;
+}
+
+.box-16 {
+  background-color: #f69664;
+  color: white;
+}
+
+.box-32 {
+  background-color: #f77c5f;
+  color: white;
+}
+
+.box-64 {
+  background-color: #f75f3b;
+  color: white;
+}
+
+.box-128 {
+  background-color: #edd073;
+  color: white;
+}
+
+.box-256 {
+  background-color: #edcc63;
+  color: white;
+}
+
+.box-512 {
+  background-color: #edc651;
+  color: white;
+}
+
+.box-1024 {
+  background-color: #eec744;
+  color: white;
+}
+
+.box-2048 {
+  background-color: #ecc230;
+  color: white;
+}

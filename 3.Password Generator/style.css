@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+:root {
+  --primary: #ffba0a;
+  --primary-light: #ffde89;
+  --primary-x-light: #fae6b3;
+  --primary-dark: #e6a500;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.box {
+  height: 37rem;
+  width: 40rem;
+  background: linear-gradient(rgb(0, 255, 157), rgb(0, 119, 128));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 3rem;
+  box-shadow: 0 0 30px rgba(3, 19, 245, 0.75);
+}
+.upper {
+  flex-grow: 1;
+  padding: 2rem 3rem;
+}
+.upper h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#password {
+  width: 100%;
+  border-radius: 2rem;
+  height: 4rem;
+  background-color: var(--primary-x-light);
+  margin-bottom: 2rem;
+  color: red;
+  font-weight: 800;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: copy;
+}
+.range_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkboxes {
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+}
+.form_control {
+  display: flex;
+  justify-content: space-between;
+}
+.form_control label {
+  font-size: 1.4rem;
+  letter-spacing: 0.3px;
+}
+
+/* For all Range Slider */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  height: 0.5rem;
+  padding: 0;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 2rem;
+  width: 1rem;
+  background-color: red;
+  border: 1px solid black;
+}
+
+input[type="checkbox"] {
+  accent-color: red;
+}
+
+#genBtn {
+  background: rgb(0, 255, 157);
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.8rem;
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 30rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+}
+
+#genBtn:active {
+  background: var(--primary-dark);
+  color: white;
+  transition: 0.3s ease-in-out;
+  cursor: crosshair;
+}
+
+@media (max-width: 425px) {
+  .box {
+    width: 100%;
+    height: 100vh;
+  }
+}
