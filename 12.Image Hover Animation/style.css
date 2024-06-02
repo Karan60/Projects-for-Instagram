@@ -1,0 +1,24 @@
+body {
+
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+ .div, img{
+    filter: saturate(0%);
+    width: 10%;
+    border: 2px solid seashell;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: all ease 0.4s;
+    cursor: pointer;
+}
+.div, img:hover{
+    filter: saturate(100%);
+    width: 30%;
+    box-shadow: 0 0 20px #00fffc, 0 0 40px #00fffc, 0 0 60px #00fffc;
+}
