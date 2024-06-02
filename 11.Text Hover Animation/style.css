@@ -1,0 +1,24 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(3rem, 10vw, 10rem);
+    color: white;
+    padding: 0 clamp(1rem, 2vw, 3rem);
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    transition: background-color 1s ease, color 1s ease;
+}
+
+h1:hover {
+    background-color: #00fffc;
+    color: black;
+    box-shadow: 0 0 20px #00fffc, 0 0 40px #00fffc, 0 0 60px #00fffc;
+    text-shadow: 0 0 10px #00fffc, 0 0 20px #00fffc, 0 0 30px #00fffc;
+}
