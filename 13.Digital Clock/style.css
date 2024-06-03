@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+  }
+  .hero {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000000;
+    position: relative;
+  }
+  .box {
+    position: relative;
+    width: 600px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .clock {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(40px);
+    color: #e6f0fcf6;
+    z-index: 10;
+  }
+  .clock span {
+    font-size: 80px;
+    width: 110px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+  }
+  .clock span::after {
+    font-size: 16px;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #hrs::after {
+    content: "HOURES";
+    color: #0f0;
+    font-weight: 600;
+    margin-bottom: -10px;
+  }
+  #min::after {
+    content: "MINS";
+    color: #0ff;
+    font-weight: 600;
+    margin-bottom: -10px;
+  }
+  #sec::after {
+    content: "SEC";
+    color: #ff0;
+    font-weight: 600;
+    margin-bottom: -10px;
+  }
+  
+  /*------Anemated Border---------*/
+  .box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(
+      from var(--a),
+      #0f0,
+      #ff0,
+      #0ff,
+      #f0f,
+      #0ff
+    );
+    border-radius: 20px;
+    animation: rotate 6s linear infinite;
+  }
+  .box::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(
+      from var(--a),
+      #0f0,
+      #ff0,
+      #0ff,
+      #f0f,
+      #0ff
+    );
+    border-radius: 20px;
+    animation: rotate 4s linear infinite;
+    filter: blur(40px);
+    opacity: 0.75;
+  }
+  .box style {
+    position: absolute;
+    inset: 4px;
+    background: #0d0577;
+    border-radius: 16px;
+    color: #ff0;
+    font-size: 20px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+  }
+  @keyframes rotate {
+    0% {
+      --a: 0;
+    }
+    0% {
+      --a: -360deg;
+    }
+  }
