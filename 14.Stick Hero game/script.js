@@ -3,7 +3,7 @@ If you want to know how this game was made, check out this video, that explains 
 
 https://youtu.be/eue3UdFvwPo
 
-Follow me on twitter for more: https://twitter.com/HunorBorbely
+Follow him on twitter for more: https://twitter.com/HunorBorbely
 
 author : Hunor Marton Borbely 
 
