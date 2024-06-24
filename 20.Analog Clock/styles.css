@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CLOCK */
+
+.clock {
+    height: 400px;
+    width: 400px;
+   
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: aliceblue;
+    font-size: 2rem;
+    box-shadow: -8px -10px 18px rgb(26, 13, 36, 0.6);
+    border: 5px solid white;
+    background: linear-gradient(-45deg, #4bfd3b, #e73c45, #7623d5, #41a0ee);
+    background-size: 400% 400%;
+    animation: gradient 3s ease infinite;
+  }
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+
+/* CLOCK NUMBERS */
+
+.number {
+    position: absolute;
+    text-align: center;
+    transform: rotate(calc(30deg * var(--num)));
+    inset: 8px;
+    text-shadow: 0px 0px 17px rgb(154, 151, 223);
+}
+
+.number b {
+    transform: rotate(calc(-30deg * var(--num)));
+    display: inline-block;
+}
+
+/* CLOCK LINE */
+
+.line {
+    height: 10px;
+    width: 12px;
+    text-align: center;
+    color: gray;
+    position: absolute;
+    transform: rotate(calc(30deg * var(--i)));
+    inset: 30px;
+}
+
+
+ /* CLOCK CENTER DOT */
+
+.center__dot {
+    background-color: aliceblue;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+/* CLOCK HANDS */
+
+.hands {
+    --rotate: 0;
+    position: absolute;
+    bottom: 50%;
+    transform: rotate(calc(var(--rotate) * 1deg));
+    transform-origin: bottom;
+}
+
+.hour__hand {
+    height: 100px;
+    width: 10px;
+    background-color: rgb(122, 248, 5);
+    
+}
+
+.minute__hand {
+    height: 150px;
+    width: 7px;
+    background-color: rgb(230, 247, 4);
+}
+
+.sec__hand {
+    height: 190px;
+    width: 4px;
+    background-color: rgb(246, 241, 247);
+}
+
+.clock__text {
+    font-family: 'Pacifico', cursive;
+    position: absolute;
+    color: rgb(186, 186, 238);
+    margin-top: 85px;
+    font-size: 15px;
+}
