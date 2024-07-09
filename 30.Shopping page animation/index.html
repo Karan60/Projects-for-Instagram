@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- about -->
+    <div class="about">
+        <a class="bg_links social portfolio" href="https://www.rafaelalucas.com/dailyui" target="_blank">
+            <span class="icon"></span>
+        </a>
+        <a class="bg_links social dribbble" href="https://dribbble.com/rafaelalucas" target="_blank">
+            <span class="icon"></span>
+        </a>
+        <a class="bg_links social linkedin" href="https://www.linkedin.com/in/rafaelalucas/" target="_blank">
+            <span class="icon"></span>
+        </a>
+        <a class="bg_links logo"></a>
+    </div>
+    <!-- end about -->
+
+    <div class="wrapper">
+        <nav>
+            <div class="mainLogo">Logo</div>
+            <div class="menu">
+                <div class="menuLinks">
+                    <a href="" class="menuLink">About</a>
+                    <a href="" class="menuLink">Store</a>
+                    <a href="" class="menuLink">Contacts</a>
+                </div>
+
+                <div class="shoppingCart">
+                    <div class="shoppingIcon">
+                        <img src="https://rafaelalucas.com/dailyui/12/assets/shopping-cart.svg" alt="">
+                        <span class="itemNumber">0</span>
+                    </div>
+                    <div class="shoppingMenu">
+                        <p class="shoppingTitle">Your Shopping Cart</p>
+                        <div class="productResume">
+                            <img src="https://rafaelalucas.com/dailyui/12/assets/img01.png" alt=""
+                                class="shoppingThumb">
+                            <article>
+                                <p class="shoppingProduct">Nike Air Max 200</p>
+                                <p class="shoppingQuantity">0</p>
+                                <p class="shoppingTotal"></p>
+                            </article>
+                        </div>
+                        <div class="shoppingBtn">
+                            <a class="link emptyCart"> <img src="https://rafaelalucas.com/dailyui/12/assets/trash.svg"
+                                    alt=""> Empty Shopping Cart</a>
+                            <button class="btn">Finish Shopping</button>
+                        </div>
+
+                    </div>
+                </div>
+
+                <i class="iconMenu">
+                    <img src="https://rafaelalucas.com/dailyui/12/assets/menu.svg" alt="">
+                </i>
+            </div>
+        </nav>
+
+        <div class="content">
+
+            <section class="left">
+                <div class="swiper-container galleryMain ">
+                    <div class="swiper-wrapper">
+                    </div>
+
+                </div>
+                <!-- Add Arrows -->
+                <div class="sliderNavigation">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </section>
+
+            <section class="right">
+                <div class="rightContent">
+                    <div class="model">
+                        <p class="modelTitle">Nike Air Max 200</p>
+                        <p class="modelDesc">AQ2568-005</p>
+                    </div>
+
+
+                    <div class="price">
+                        <p class="priceFinal"></p>
+                        <p class="priceOriginal"></p>
+                    </div>
+
+                    <div class="specs">
+                        <div class="size">
+                            <h3 class="subtitle">Size</h3>
+                            <div class="dropdown">
+                                <div class="form dropContent">
+                                    <p class="sizeNumber">40</p>
+                                    <i class="icon arrowDrop">
+                                        <img src="https://rafaelalucas.com/dailyui/12/assets/arrow-down.svg" alt="">
+                                    </i>
+                                </div>
+                                <div class="dropOpen">
+                                    <ul class="dropItems">
+                                        <li class="dropItem">38</li>
+                                        <li class="dropItem">39</li>
+                                        <li class="dropItem">40</li>
+                                        <li class="dropItem">41</li>
+                                        <li class="dropItem">42</li>
+                                        <li class="dropItem">43</li>
+                                        <li class="dropItem">44</li>
+                                        <li class="dropItem">45</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="quantity">
+                            <h3 class="subtitle">Quantity</h3>
+                            <div class="form quantityCounter">
+                                <input class="inputQuantity" onKeyDown="return false" type="number" value="1" />
+
+                                <i class="icon btnQuantity minus">
+                                    <img src="https://rafaelalucas.com/dailyui/12/assets/minus.svg" alt="">
+                                </i>
+                                <i class="icon btnQuantity plus">
+                                    <img src="https://rafaelalucas.com/dailyui/12/assets/plus.svg" alt="">
+                                </i>
+                            </div>
+
+                            <p class="error">We only have 5 items in stock.</p>
+                        </div>
+                    </div>
+                    <div class="swiper-container galleryThumbs">
+                        <div class="swiper-wrapper">
+                        </div>
+                    </div>
+                    <div class="btnContainer">
+                        <button class="btn add">
+                            <img src="https://rafaelalucas.com/dailyui/12/assets/shopping-cart-w.svg" alt="">
+                            add to cart</button>
+                    </div>
+
+                </div>
+            </section>
+            <!-- Swiper -->
+
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.0/js/swiper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
