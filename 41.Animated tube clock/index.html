@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <svg id="noise-svg">
+        <!-- gives background a bit of texture -->
+        <filter id='noiseFilter'>
+            <feTurbulence type='fractalNoise' baseFrequency='1.5' numOctaves='3' stitchTiles='stitch' />
+        </filter>
+        <rect id="noise-rect" filter='url(#noiseFilter)' />
+      </svg>
+    
+      <div class="clock off">
+        <div class="shadow"></div>
+    
+        <div class="base-container"><div class="base"><div></div></div></div>
+        <div class="small-outer-pipe">
+          <div class="small-inner-pipe"></div>
+        </div>
+        <div class="outer-pipe">
+          <div class="inner-pipe"></div>
+        </div>
+        <div class="pipe-accents">
+          <div class="top-tube"></div>
+          <div class="tube-holders">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+          <div class="top"></div>
+          <div class="topinset"></div>
+          <div class="left"><div></div><div></div><div></div></div>
+          <div class="right"><div></div><div></div><div></div></div>
+          <div class="bottom-left"></div>
+          <div class="bottom-right"></div>
+        </div>
+    
+        <div class="display">
+          <div class="row">
+            <div class="col"><div>8</div><div id="char01">0</div><div id="char02">0</div></div>
+            <div class="col"><div>8</div><div id="char11">0</div><div id="char12">0</div></div>
+          </div>
+          <div class="row">
+            <div class="col"><div>8</div><div id="char21">0</div><div id="char22">0</div></div>
+            <div class="col"><div>8</div><div id="char31">0</div><div id="char32">0</div></div>
+          </div>
+          <div style="height: 0.2em;"></div>
+          <div class="small-row">
+            <div class="row">
+              <div class="col"><div>8</div><div id="char41">0</div><div id="char42">0</div></div>
+              <div class="col"><div>8</div><div id="char51">0</div><div id="char52">0</div></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col"><div>8</div><div id="char61">0</div><div id="char62">0</div></div>
+            <div class="col"><div>8</div><div id="char71">0</div><div id="char72">0</div></div>
+          </div>
+          <div class="row">
+            <div class="col"><div>8</div><div id="char81">0</div><div id="char82">0</div></div>
+            <div class="col"><div>8</div><div id="char91">0</div><div id="char92">0</div></div>
+          </div>
+          <div class="row">
+            <div class="col"><div>8</div><div id="char101">0</div><div id="char102">0</div></div>
+            <div class="col"><div>8</div><div id="char111">0</div><div id="char112">0</div></div>
+          </div>
+        </div>
+    
+        <div class="glass-tube"></div>
+        <div class="hex">
+          <div class="overlay"></div>
+        </div>
+    
+        <div class="tube-base-container">
+          <div class="wires"><div></div><div></div></div>
+          <div class="tube-base"></div>
+          <div class="rods">
+            <div class="left-rod"></div>
+            <div class="center-rod"></div>
+            <div class="right-rod"></div>
+          </div>
+          <div class="tube-btm"></div>
+        </div>
+    
+        <div class="power-cord">
+          <div></div>
+          <div></div>
+        </div>
+        
+        <div class="button" onclick="body.querySelector('.clock').classList.toggle('off')">
+          <div></div>
+        </div> 
+      </div>
+      <script src="main.js"></script>
+</body>
+</html>
