@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoes-Product Card</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="thumb">
+            <ul>
+                <li onmouseover="chnageImgSrc('images/shoes1.png')"><img src="images/shoes1.png" alt=""></li>
+                <li onmouseover="chnageImgSrc('images/shoes2.png')"><img src="images/shoes2.png" alt=""></li>
+                <li onmouseover="chnageImgSrc('images/shoes3.png')"><img src="images/shoes3.png" alt=""></li>
+            </ul>
+        </div>
+        <div class="imgBox">
+            <h2>Nike Air Zoom</h2>
+            <img src="images/shoes1.png" alt="" class="shoes">
+            <ul class="sizes">
+                <span>Size</span>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+            <a href="#" class="btn">Add To Cart</a>
+        </div>
+    </div>
+
+
+    <script>
+        function chnageImgSrc(src) {
+            document.querySelector('.shoes').src = src;
+        }
+    </script>
+</body>
+</html>
