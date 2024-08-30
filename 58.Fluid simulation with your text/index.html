@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" defer src="main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas></canvas>
+
+<script type="x-shader/x-fragment" id="vertShader">
+    precision highp float;
+
+    varying vec2 vUv;
+    attribute vec2 a_position;
+
+    varying vec2 vL;
+    varying vec2 vR;
+    varying vec2 vT;
+    varying vec2 vB;
+    uniform vec2 u_texel;
+
+    void main () {
+        vUv = .5 * (a_position + 1.);
+        vL = vUv - vec2(u_texel.x, 0.);
+        vR = vUv + vec2(u_texel.x, 0.);
+        vT = vUv + vec2(0., u_texel.y);
+        vB = vUv - vec2(0., u_texel.y);
+        gl_Position = vec4(a_position, 0., 1.);
+    }
+</script>
+
+<script type="x-shader/x-fragment" id="fragShaderAdvection">
+    precision highp float;
+    precision highp sampler2D;
+
+    varying vec2 vUv;
+    uniform sampler2D u_velocity_texture;
+    uniform sampler2D u_input_texture;
+    uniform vec2 u_texel;
+    uniform float u_dt;
+    uniform float u_use_text;
+    uniform sampler2D u_text_texture;
+
+    vec4 bilerp (sampler2D sam, vec2 uv, vec2 tsize) {
+        vec2 st = uv / tsize - 0.5;
+
+        vec2 iuv = floor(st);
+        vec2 fuv = fract(st);
+
+        vec4 a = texture2D(sam, (iuv + vec2(0.5, 0.5)) * tsize);
+        vec4 b = texture2D(sam, (iuv + vec2(1.5, 0.5)) * tsize);
+        vec4 c = texture2D(sam, (iuv + vec2(0.5, 1.5)) * tsize);
+        vec4 d = texture2D(sam, (iuv + vec2(1.5, 1.5)) * tsize);
+
+        return mix(mix(a, b, fuv.x), mix(c, d, fuv.x), fuv.y);
+    }
+
+    void main () {
+        vec2 coord = vUv - u_dt * bilerp(u_velocity_texture, vUv, u_texel).xy * u_texel;
+        float text = texture2D(u_text_texture, vec2(vUv.x, 1. - vUv.y)).r;
+        float dissipation = (.96 + text * .04 * u_use_text);
+
+        gl_FragColor = dissipation * bilerp(u_input_texture, coord, u_texel);
+        gl_FragColor.a = 1.;
+    }
+</script>
+
+<script type="x-shader/x-fragment" id="fragShaderDivergence">
+    precision highp float;
+    precision highp sampler2D;
+
+    varying highp vec2 vUv;
+    varying highp vec2 vL;
+    varying highp vec2 vR;
+    varying highp vec2 vT;
+    varying highp vec2 vB;
+    uniform sampler2D u_velocity_texture;
+
+    void main () {
+        float L = texture2D(u_velocity_texture, vL).x;
+        float R = texture2D(u_velocity_texture, vR).x;
+        float T = texture2D(u_velocity_texture, vT).y;
+        float B = texture2D(u_velocity_texture, vB).y;
+
+        float div = .6 * (R - L + T - B);
+        gl_FragColor = vec4(div, 0., 0., 1.);
+    }
+</script>
+
+<script type="x-shader/x-fragment" id="fragShaderPressure">
+    precision highp float;
+    precision highp sampler2D;
+
+    varying highp vec2 vUv;
+    varying highp vec2 vL;
+    varying highp vec2 vR;
+    varying highp vec2 vT;
+    varying highp vec2 vB;
+    uniform sampler2D u_pressure_texture;
+    uniform sampler2D u_divergence_texture;
+    uniform sampler2D u_text_texture;
+
+    void main () {
+
+        float text = texture2D(u_text_texture, vec2(vUv.x, 1. - vUv.y)).r;
+
+        float L = texture2D(u_pressure_texture, vL).x;
+        float R = texture2D(u_pressure_texture, vR).x;
+        float T = texture2D(u_pressure_texture, vT).x;
+        float B = texture2D(u_pressure_texture, vB).x;
+        float C = texture2D(u_pressure_texture, vUv).x;
+        float divergence = texture2D(u_divergence_texture, vUv).x;
+
+        float pressure = (L + R + B + T - divergence) * 0.25;
+        pressure += (.2 * text);
+
+        gl_FragColor = vec4(pressure, 0., 0., 1.);
+    }
+</script>
+
+<script type="x-shader/x-fragment" id="fragShaderGradientSubtract">
+    precision highp float;
+    precision highp sampler2D;
+
+    varying highp vec2 vUv;
+    varying highp vec2 vL;
+    varying highp vec2 vR;
+    varying highp vec2 vT;
+    varying highp vec2 vB;
+    uniform sampler2D u_pressure_texture;
+    uniform sampler2D u_velocity_texture;
+
+    uniform sampler2D u_text_texture;
+
+    void main () {
+        float L = texture2D(u_pressure_texture, vL).x;
+        float R = texture2D(u_pressure_texture, vR).x;
+        float T = texture2D(u_pressure_texture, vT).x;
+        float B = texture2D(u_pressure_texture, vB).x;
+        vec2 velocity = texture2D(u_velocity_texture, vUv).xy;
+        velocity.xy -= vec2(R - L, T - B);
+        gl_FragColor = vec4(velocity, 0., 1.);
+    }
+</script>
+
+<script type="x-shader/x-fragment" id="fragShaderPoint">
+    precision highp float;
+    precision highp sampler2D;
+
+    varying vec2 vUv;
+    uniform sampler2D u_input_texture;
+    uniform float u_ratio;
+    uniform vec3 u_point_value;
+    uniform vec2 u_point;
+    uniform float u_point_size;
+
+    uniform sampler2D u_text_texture;
+
+
+    void main () {
+        vec2 p = vUv - u_point.xy;
+        p.x *= u_ratio;
+        vec3 splat = pow(2., -dot(p, p) / u_point_size) * u_point_value;
+
+        float text = texture2D(u_text_texture, vec2(vUv.x, 1. - vUv.y)).r;
+        splat *= (.7 + .2 * text);
+
+        vec3 base = texture2D(u_input_texture, vUv).xyz;
+        gl_FragColor = vec4(base + splat, 1.);
+    }
+</script>
+
+<script type="x-shader/x-fragment" id="fragShaderOutputShader">
+    precision highp float;
+    precision highp sampler2D;
+
+    varying vec2 vUv;
+    uniform sampler2D u_output_texture;
+    uniform sampler2D u_text_texture;
+
+    void main () {
+        vec3 C = texture2D(u_output_texture, vUv).rgb;
+        float text = texture2D(u_text_texture, vec2(vUv.x, 1. - vUv.y)).r; 
+        gl_FragColor = vec4(vec3(1.) - C, 1.);
+    }
+</script>
+</body>
+</html>

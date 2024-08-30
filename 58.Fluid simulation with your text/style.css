@@ -1,0 +1,34 @@
+/* author: https://codepen.io/ksenia-k/pen/MWMObrY
+Ksenia Kondrashova */
+
+body, html {
+    padding: 0;
+    margin: 0;
+    background-color: #100f0f;
+
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lil-gui {
+    --width: 450px;
+    max-width: 90%;
+    --widget-height: 20px;
+    font-size: 15px;
+    --input-font-size: 15px;
+    --padding: 10px;
+    --spacing: 10px;
+    --slider-knob-width: 5px;
+    --background-color: rgba(1, 1, 1, 0.8);
+    --widget-color: rgba(255, 255, 255, .3);
+    --focus-color: rgba(255, 255, 255, .4);
+    --hover-color: rgba(255, 255, 255, .5);
+
+    --font-family: monospace;
+}
