@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+background: linear-gradient(-45deg, #ee7752, #e73c7e, #7623d5, #41a0ee);
+background-size: 400% 400%;
+animation: gradient 5s ease infinite;
+}
+
+@keyframes gradient {
+0% {
+  background-position: 0% 50%;
+}
+50% {
+  background-position: 100% 50%;
+}
+100% {
+  background-position: 0% 50%;
+}
+}
+
+h1{
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: #222;
+}
+
+.profile-pic-div{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+}
+
+#photo{
+    height: 100%;
+    width: 100%;
+}
+
+#file{
+    display: none;
+}
+
+#uploadBtn{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: wheat;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+    display: none;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px dotted #000000;
+    animation: spin 20s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%,-50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%,-50%) rotate(360deg);
+    }
+}
