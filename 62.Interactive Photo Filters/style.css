@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway&family=Poppins&display=swap");
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+@import url("https://unpkg.com/aos@2.3.0/dist/aos.css");
+
+@media (min-width: 328px) {
+  * {font-size: 0.6rem;}
+	.info {font-size : 0.2rem;}
+}
+
+@media (min-width: 544px) { 
+  * {font-size : 1rem;}
+	.info {font-size : 0.75rem;}
+}
+
+body, html, button {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	background-color: gainsboro;
+	font-family: "Poppins", sans-serif;
+}
+
+figure img {
+  text-align: center;
+	width: 40vw;
+	height: 80vh;
+	object-fit: cover;
+	background: white;
+	padding: 10px 10px 35px;
+	text-align: center;
+	text-decoration: none;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+	transition: all 0.15s linear;
+	z-index: 0;
+	position: relative;
+	transform: rotate(4deg);
+}
+	
+img {
+  max-width: 60%;
+  max-height: 80vh;
+  margin: 0 auto;
+  display: block;
+}
+
+#apply-blend-mode {
+  margin-top: 10px;
+}
+
+.btn:hover {
+	box-shadow: 0 0 15px 5px yellow;
+}
+
+.inp:hover {
+	box-shadow: 0 0 20px 3px yellow;
+}

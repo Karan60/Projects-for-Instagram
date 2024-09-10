@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<figure></figure>
+	<img id="filter-image" src="https://images.unsplash.com/photo-1673031288723-f198cd527b97?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2OTE5ODAxNjZ8&ixlib=rb-4.0.3&q=85" alt="3D rendered image of a group of green glass objects rising up out of a hole in a green table. " title="Photo by Allison Saeng for Unsplash. ">
+</figure>
+
+<div class="control">
+<!--// My additional code //-->
+	<p><input type="range" class="inp" min="0" max="200" id="brightness" value="100" />
+		<label><span class="info input-group-text"> Brightness: <span id="brightness-value">100%</span></span></label>	
+	</p>
+  
+	<p><input type="range" class="inp" min="0" max="200" id="contrast" value="100" />
+		<label><span class="info input-group-text"> Contrast: <span id="contrast-value">100%</span></span></label>	
+	</p>
+	
+	<p><input type="range" class="inp" min="0" max="200" id="saturate" value="100" />
+		<label><span class="info input-group-text"> Saturate: <span id="saturate-value">100%</span></span></label>	
+	</p>
+  
+	<p><input type="range" class="inp" min="0" max="100" id="opacity" value="100" />
+		<label><span class="info input-group-text"> Opacity: <span id="opacity-value">100%</span></span></label>
+	</p>
+	
+	<p><input type="range" class="inp" min="0" max="100" id="grayscale" value="0" />
+		<label><span class="info input-group-text"> Grayscale: <span id="grayscale-value">0%</span></span></label>
+	</p>
+  
+	<p><input type="range" class="inp" min="0" max="100" id="sepia" value="0" />
+		<label><span class="info input-group-text"> Sepia: <span id="sepia-value">0%</span></span></label>
+	</p>
+	
+	<p><input type="range" class="inp" min="0" max="10" id="blur" value="0" />
+		<label><span class="info input-group-text"> Blur: <span id="blur-value">0px</span></span></label>
+	</p>
+
+	<div class="btn-group" role="group" aria-label="buttons">
+		<button class="btn btn-secondary" id="random-filter">Random</button> 
+		<button class="btn btn-warning" id="show-filter">Random 50x</button> 
+		<button class="btn btn-primary" id="reset-filter">Reset</button>
+	</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
