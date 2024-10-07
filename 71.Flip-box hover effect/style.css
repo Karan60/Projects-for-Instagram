@@ -1,0 +1,132 @@
+/* author: https://codepen.io/siseer/pen/WLzEGN
+Dragos */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1d1e22;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-wrapper {
+  cursor: pointer;
+  position: relative;
+  width: 500px;
+  height: 350px;
+  box-shadow: 0px 30px 40px -25px rgba(0, 0, 0, 0.5);
+}
+.card-wrapper:hover .card-top .side {
+  transform: rotateX(0deg);
+}
+.card-wrapper:hover .card-top .side:after {
+  opacity: 0;
+  transition-delay: 0.2s;
+}
+.card-wrapper:hover .card-main .side:after {
+  opacity: 1;
+}
+.card-wrapper:hover .card-main .side2 {
+  transform: rotateY(-90deg) translateX(250px);
+}
+.card-wrapper:hover .card-main .side1 {
+  transform: rotateY(-90deg) translateX(-250px);
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 350px;
+  transition: 0.5s linear all;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 50px;
+  background-size: 500px 350px;
+}
+.card h2 {
+  color: white;
+  font-family: sans-serif;
+  width: 200%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card .side {
+  overflow: hidden;
+  position: relative;
+  width: 250px;
+  height: 350px;
+  background-size: 500px 350px;
+  transition: 0.5s linear transform;
+  transition: 1s cubic-bezier(0.5, -0.03, 0.58, 1.08) transform;
+}
+.card .side:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 1s cubic-bezier(0.5, -0.03, 0.58, 1.08) opacity;
+}
+.card .side1 {
+  background-position: 0% 0%;
+}
+.card .side2 {
+  background-position: 100% 0;
+}
+.card .side2 h2 {
+  transform: translateX(-50%);
+}
+.card.card-main {
+  transform-origin: bottom;
+}
+.card.card-main .side {
+  background-image: url(https://images.unsplash.com/photo-1506214788974-6d79807207b0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
+.card.card-main .side1 {
+  transform-origin: left;
+}
+.card.card-main .side2 {
+  transform-origin: right;
+}
+.card.card-main .side:after {
+  opacity: 0;
+}
+.card.card-main .side1:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.9));
+}
+.card.card-main .side2:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5));
+}
+.card.card-top {
+  transform-origin: bottom;
+}
+.card.card-top .side1 {
+  transform-origin: right;
+  transform: rotateY(-90deg) translateX(-250px);
+}
+.card.card-top .side1:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+}
+.card.card-top .side2 {
+  transform-origin: left;
+  transform: rotateY(-90deg) translateX(-250px);
+}
+.card.card-top .side2:after {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
+}
+.card.card-top .side {
+  background-image: url(https://images.unsplash.com/photo-1513605087734-c00a45d56bf2?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+}
