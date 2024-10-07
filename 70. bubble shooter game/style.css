@@ -1,0 +1,22 @@
+/* author: https://codepen.io/cantelope/pen/yLdyNMp
+Scott R McGann
+ */
+
+body, html{
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #204, #000);
+    overflow: hidden;
+  }
+  #c:focus{
+    outline: none;
+  }
+  #c{
+    border: 3px solid #0Ff3;
+    position: absolute;
+    background: #04f1;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    transform: translate(-50%, -50%);
+  }
